@@ -7,7 +7,7 @@ class Bird
 public:
 	Bird();
 
-	sf::FloatRect get_global_bounds();
+	sf::FloatRect get_global_bounds()const;
 	void set_position(const sf::Vector2f& pos);
 	sf::Vector2f get_position();
 	void draw(sf::RenderWindow& window);

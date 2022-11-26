@@ -38,6 +38,12 @@ void Pipe::init_pipe() {
 		}
 	}
 }
+void Pipe::move(const float& x_offset, const float& y_offset) {
+	m_head.move(sf::Vector2f(-x_offset, y_offset));
+	for (int i = 0; i < m_tail.size(); ++i) {
+		m_tail[i].move(-x_offset, y_offset);
+	}
+}
 void Pipe::draw(sf::RenderWindow& window) {
 	window.draw(m_head);
 	for (int i = 0; i < m_tail.size(); ++i) {

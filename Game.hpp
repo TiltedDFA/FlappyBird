@@ -6,6 +6,7 @@
 #include "Pipe.hpp"
 class Game
 {
+	//work on pipe manager class next
 public:
 	Game();
 	void Run();
@@ -14,10 +15,10 @@ private:
 	void game_over();
 private:
 	Resource_Manager m_instance;
-	Pipe m_test, m_test2;
 	sf::RenderWindow m_window;
 	sf::Clock m_clock;
 	Bird m_bird;
 	sf::Sprite m_background;
+	Pipe test1, test2;
 };
 

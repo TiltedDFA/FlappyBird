@@ -2,14 +2,15 @@
 Game::Game()
 {
 	m_window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Flappy Bird");
-    m_bird.set_position(sf::Vector2f(100, 300));
+    m_window.setFramerateLimit(60);
+    m_bird.set_position(sf::Vector2f(50, 300));
     m_background.setTexture(Resource_Manager::get_texture(BACKGROUND_TXTR_PATH));
-    m_test.set_position(sf::Vector2f(200, 650));
-    m_test.set_orientation(false);
-    m_test.init_pipe();
-    m_test2.set_position(sf::Vector2f(100, 550));
-    m_test2.set_orientation(true);
-    m_test2.init_pipe();
+    test1.set_orientation(true);
+    test1.set_position(sf::Vector2f(200, 450));
+    test1.init_pipe();
+    test2.set_orientation(false);
+    test2.set_position(sf::Vector2f(200, 350));
+    test2.init_pipe();
 }
 bool Game::player_has_died() {
     if (m_bird.get_position().y + BIRD_SPRITE_HEIGHT > SCREEN_HEIGHT) {
@@ -58,10 +59,13 @@ void Game::Run() {
         }
         m_bird.update(delta_time);
         
+        test1.move(0.5, 0);
+        test2.move(0.5, 0);
+
         m_window.clear();
         m_window.draw(m_background);
-        m_test.draw(m_window);
-        m_test2.draw(m_window);
+        test2.draw(m_window);
+        test1.draw(m_window);
         m_bird.draw(m_window);
         m_window.display();
     }   

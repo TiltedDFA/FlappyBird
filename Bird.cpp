@@ -5,7 +5,7 @@ Bird::Bird() {
 	m_sprite.setTextureRect(sf::IntRect(0, 0, 40, 40));
 	m_vertical_speed = 0;
 }
-sf::FloatRect Bird::get_global_bounds() {
+sf::FloatRect Bird::get_global_bounds()const {
 	return m_sprite.getGlobalBounds();
 }
 void Bird::set_position(const sf::Vector2f& pos) {

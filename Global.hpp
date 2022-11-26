@@ -17,3 +17,8 @@
 
 #define PIPE_HEAD_PATH "assets/tail_head.png"
 #define PIPE_TAIL_PATH "assets/tail_segment.png"
+
+#define PIPE_X_SPACING 100
+#define PIPE_Y_SPACING 100
+#define PIPE_MIN_Y 150
+#define PIPE_MAX_Y 650
