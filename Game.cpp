@@ -7,6 +7,9 @@ Game::Game()
     m_test.set_position(sf::Vector2f(200, 650));
     m_test.set_orientation(false);
     m_test.init_pipe();
+    m_test2.set_position(sf::Vector2f(100, 550));
+    m_test2.set_orientation(true);
+    m_test2.init_pipe();
 }
 bool Game::player_has_died() {
     if (m_bird.get_position().y + BIRD_SPRITE_HEIGHT > SCREEN_HEIGHT) {
@@ -58,6 +61,7 @@ void Game::Run() {
         m_window.clear();
         m_window.draw(m_background);
         m_test.draw(m_window);
+        m_test2.draw(m_window);
         m_bird.draw(m_window);
         m_window.display();
     }   

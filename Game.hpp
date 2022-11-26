@@ -14,7 +14,7 @@ private:
 	void game_over();
 private:
 	Resource_Manager m_instance;
-	Pipe m_test;
+	Pipe m_test, m_test2;
 	sf::RenderWindow m_window;
 	sf::Clock m_clock;
 	Bird m_bird;
