@@ -5,12 +5,15 @@
 class Pipe_Manager
 {
 public:
-	Pipe_Manager()=default;
-	void update_pipes_pos(const sf::Time& dt);
+	Pipe_Manager();
+	
+	//used to generate a pipe
 	void gen_pipe();
-	void draw_pipes();
+	void draw_pipes(sf::RenderWindow& window);
 	bool check_collision_with_player(const Bird& plyr);
+	void update(const sf::Time& dt);
 private:
 	std::vector<Pipe> m_pipes;
+	sf::Clock m_pipe_timer;
 };
 

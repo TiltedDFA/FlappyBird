@@ -36,5 +36,5 @@ void Bird::update(const sf::Time& dt) {
 }
 void Bird::flap() {
 	m_sprite.setTextureRect(sf::IntRect(0, 0, 40, 40));
-	m_vertical_speed = -150;
+	m_vertical_speed = -200;
 }

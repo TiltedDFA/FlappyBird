@@ -1,8 +1,22 @@
 #include "Pipe.hpp"
+sf::Vector2i Pipe::get_position()const {
+	return sf::Vector2i(m_head.getPosition());
+}
 void Pipe::set_orientation(const bool& is_upright) {
 	m_is_upright = is_upright;
 	if(!is_upright) 
 		m_head.setRotation(180);
+}
+bool Pipe::check_collision_with_plyr(const Bird& plyr)const {
+	if (m_head.getGlobalBounds().intersects(plyr.get_global_bounds())) {
+		return true;
+	}
+	for (const auto& i : m_tail) {
+		if(i.getGlobalBounds().intersects(plyr.get_global_bounds())) {
+			return true;
+		}
+	}
+	return false;
 }
 void Pipe::set_position(const sf::Vector2f& position) {
 	m_head.setPosition(position);
@@ -39,12 +53,12 @@ void Pipe::init_pipe() {
 	}
 }
 void Pipe::move(const float& x_offset, const float& y_offset) {
-	m_head.move(sf::Vector2f(-x_offset, y_offset));
+	m_head.move(sf::Vector2f(std::floor(-x_offset), std::floor(y_offset)));
 	for (int i = 0; i < m_tail.size(); ++i) {
-		m_tail[i].move(-x_offset, y_offset);
+		m_tail[i].move(std::floor( - x_offset), std::floor(y_offset));
 	}
 }
-void Pipe::draw(sf::RenderWindow& window) {
+void Pipe::draw(sf::RenderWindow& window)const {
 	window.draw(m_head);
 	for (int i = 0; i < m_tail.size(); ++i) {
 		window.draw(m_tail[i]);

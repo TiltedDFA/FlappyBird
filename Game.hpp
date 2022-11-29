@@ -4,6 +4,7 @@
 #include<SFML/Graphics.hpp>
 #include "Bird.hpp"
 #include "Pipe.hpp"
+#include "Pipe_Manager.hpp"
 class Game
 {
 	//work on pipe manager class next
@@ -19,6 +20,6 @@ private:
 	sf::Clock m_clock;
 	Bird m_bird;
 	sf::Sprite m_background;
-	Pipe test1, test2;
+	Pipe_Manager m_pipe_manager;
 };
 
