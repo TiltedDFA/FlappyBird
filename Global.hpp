@@ -17,10 +17,11 @@
 
 #define PIPE_HEAD_PATH "assets/tail_head.png"
 #define PIPE_TAIL_PATH "assets/tail_segment.png"
+#define SCORE_TXT "assets/OETZTYP_.ttf"
 
 #define PIPE_X_SPACING 200
 #define PIPE_Y_SPACING 150
 #define PIPE_MIN_Y 150
 #define PIPE_MAX_Y 650
 
-#define TIME_BETWEEN_PIPE_GEN 3
+#define TIME_BETWEEN_PIPE_GEN 3.5

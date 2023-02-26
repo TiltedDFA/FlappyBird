@@ -12,6 +12,7 @@ public:
 	Game();
 	void Run();
 private:
+	void draw_score();
 	bool player_has_died();
 	void game_over();
 private:
@@ -21,5 +22,8 @@ private:
 	Bird m_bird;
 	sf::Sprite m_background;
 	Pipe_Manager m_pipe_manager;
+	bool m_space_pressed;
+	int m_plyr_score;
+	sf::Text m_score_txt;
 };
 

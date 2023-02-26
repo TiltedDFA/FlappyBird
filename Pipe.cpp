@@ -24,8 +24,8 @@ void Pipe::set_position(const sf::Vector2f& position) {
 void Pipe::init_pipe() {
 	if (m_is_upright) {
 		m_head.setTexture(Resource_Manager::get_texture(PIPE_HEAD_PATH));
-		int num_pipe_tails = (SCREEN_HEIGHT - (static_cast<int>(m_head.getPosition().y) + PIPE_HEAD_HEIGHT))
-			/ PIPE_TAIL_HEIGHT;
+		const int num_pipe_tails = ((SCREEN_HEIGHT - (static_cast<int>(m_head.getPosition().y) + PIPE_HEAD_HEIGHT))
+			/ PIPE_TAIL_HEIGHT)+1;
 		for (int i = 0; i < num_pipe_tails; ++i) {
 			sf::Sprite tail_segment;
 			tail_segment.setTexture(Resource_Manager::get_texture(PIPE_TAIL_PATH));
@@ -40,7 +40,7 @@ void Pipe::init_pipe() {
 		m_head.setTexture(Resource_Manager::get_texture(PIPE_HEAD_PATH));
 		//this is to adjust for the rotation
 		m_head.setPosition(sf::Vector2f(m_head.getPosition().x + PIPE_HEAD_WIDTH, m_head.getPosition().y));
-		int num_pipe_tails = (static_cast<int>(m_head.getPosition().y) - PIPE_HEAD_HEIGHT) / PIPE_TAIL_HEIGHT;
+		const int num_pipe_tails = ((static_cast<int>(m_head.getPosition().y) - PIPE_HEAD_HEIGHT) / PIPE_TAIL_HEIGHT)+1;
 		for (int i = 0; i < num_pipe_tails; ++i) {
 			sf::Sprite tail_segment;
 			tail_segment.setTexture(Resource_Manager::get_texture(PIPE_TAIL_PATH));
